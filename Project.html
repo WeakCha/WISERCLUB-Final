@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link rel="stylesheet" href="jemdoc.css" type="text/css" />
+<title></title>
+<!-- MathJax -->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+	  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<!-- End MathJax -->
+</head>
+<body>
+<table summary="Table for page layout." id="tlayout">
+<tr valign="top">
+<td id="layout-menu">
+<div class="menu-category">WISERCLUB <br /> 2019-2020 Final</div>
+<div class="menu-item"><a href="Final.html">Introduction</a></div>
+<div class="menu-item"><a href="Project.html" class="current">Project&nbsp;Description</a></div>
+</td>
+<td id="layout-content">
+<p></p>
+<h2>Explorative Data Analysis</h2>
+<p></p>
+<ol>
+<li><p>Find the time span of the order data.</p>
+</li>
+<li><p>Find the number of orders each day.</p>
+<ol>
+<li><p><i>Boss: we need to design two different strategies for sales in workdays and sales in weekends.</i> <br /> True or false? </p>
+</li></ol>
+</li>
+<li><p>Find the number of users.</p>
+</li>
+<li><p>Find ten commodities with the highest sales and draw graphs with x-axis the commodity name and y-axis the # of orders.</p>
+</li>
+<li><p>Find &ldquo;Active Users&rdquo; (which means the number of orders of one user is greater equal to 5).</p>
+</li>
+<li><p>Write the table you get in 5 as a csv file with filename <i>ActiveUser.csv</i>. </p>
+</li>
+<li><p>Provide a description of the number of orders for each active user (# of ActiveUser, mean, std, variance, range, skewness, kurtosis )
+</p>
+</li>
+</ol>
+<h2>Data Preprocessing</h2>
+<p></p>
+<ol>
+<li><p>Find the discount rate of each user and concat it onto the original dataset with column name <i>discount_rate</i>. You may use <i>pay_money</i>, <i>coffeestore_share_money</i>, <i>commodity_origin_money</i> and <i>commodity_income</i>.</p>
+</li>
+<li><p>Remove the first column, because it is just a copy of index.</p>
+</li>
+<li><p><i>Boss: To implement traditional algorithms in recommendation systems, we need a user-item table to show the number of orders for each user and each item.</i> <br />
+Try to construct <i>user-item</i> table. An example of user-item pair: (Phone_No, <span lang = "zh-Hans">标准美式</span>)</p>
+</li>
+<li><p><i>Boss: Life is not a Markov Chain, which means everyone's past behavior is correlated with his present behavior. And that is why we could exploit past purchase behavior to predict their future buying trends.</i> <br />
+Try to construct a dataset to show this past purchasing behavior trend. For convenience, several instructions are proposed as follows</p>
+<ol>
+<li><p>Two days correspond to one dimension. </p>
+</li>
+<li><p>The last two days of the time span of the data should be the <i>future</i>, which means it corresponds to the <i>target</i> field for the following data mining models. </p>
+</li>
+<li><p>The length of each user vector must be maximized. </p>
+</li>
+<li><p>The dataset should be a <tt>DataFrame</tt> in Pandas, so you could customize the columns as you wish. <br />
+For example, if the time span is from 2019-02-01 to 2019-02-10, then there are 10 days altogether. So each user corresponds to a 5-dimensional vector, with 4 features and 1 target dimension. The vector <tt>[4, 0, 0, 0, 1]</tt>  means this user bought one good between 02-09 and 02-10, and four goods between 02-01 and 02-02. Additionally, the length of each user vector MUST BE 5 because of the rule 3. 
+</p>
+</li>
+</ol>
+
+</li>
+</ol>
+<h2>Model Training and Prediction</h2>
+<p>
+<i>Boss: For the target field, 1 means he purchased in the future and 0 means he did not. Then you could use traditional classification algorithms to predict the future behaviors of all users.</i>
+</p>
+<ol>
+<li><p>Transform the data you got from the last section into an <tt>array</tt> in Numpy. </p>
+</li>
+<li><p>Split the data into features <tt>X</tt> and targets <tt>Y</tt>.</p>
+</li>
+<li><p>Use <i>Adaboost</i>, <i>Random Forest</i> in Sklearn to construct the model with 3-fold cross validation. </p>
+<ol>
+<li><p>(Optional) Use <i>xgboost</i>. </p>
+</li>
+<li><p><i>Boss: Please do not use naive-bayes or support vector machine in this project. </i> <br />
+True or False? Give an explanation.</p>
+</li></ol>
+</li>
+<li><p>Tune your model and report the best metrics you could get for your model and the corresponding confusion matrix. Here are some suggestions.</p>
+<ol>
+<li><p>Try to do oversampling or undersampling. This is an imbalanced classification problem.</p>
+</li>
+<li><p>Change the parameters of each model (e.g. scale_pos_weight in <i>xgboost</i> and probability threshold), more information could be found in the Official Documentations.</p>
+</li>
+<li><p>Accuracy is not suitable to be an evaluation metric in this case. Use F1-measure. </p>
+</li>
+<li><p>Try to not record the # of orders for each user. Record whether he bought the goods instead, 1 if he bought and 0 otherwise.  </p>
+</li>
+<li><p>Try to record the <i>active-user</i> feature. Many users did not only buy one cup of drink during two days, so whether one user is active should be took into consideration. </p>
+</li></ol>
+</li>
+<li><p>After tuning, try to explain why your model works better.  </p>
+</li>
+</ol>
+<div id="footer">
+<div id="footer-text">
+Page generated 2019-12-12 20:59:17 China Standard Time, by <a href="https://github.com/wsshin/jemdoc_mathjax" target="blank">jemdoc+MathJax</a>.
+</div>
+</div>
+</td>
+</tr>
+</table>
+</body>
+</html>
