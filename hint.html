@@ -8,11 +8,21 @@
 <title></title>
 </head>
 <body>
+<table summary="Table for page layout." id="tlayout">
+<tr valign="top">
+<td id="layout-menu">
+<div class="menu-category">WISERCLUB <br/> 2019-2020 Final</div>
+<div class="menu-item"><a href="index.html" class="current">Introduction</a></div>
+<div class="menu-item"><a href="Project.html">Project&nbsp;Description</a></div>
+<div class="menu-item"><a href="hint.html">Hints</a></div>
+</td>
+<td id="layout-content">
 <div id="layout-content">
 <div class="infoblock">
 <div class="blocktitle">Preparation and Read Files</div>
 <div class="blockcontent">
-<p>You should import some important packages first. For encoding reasons, you should use UTF-8. In Python, it means</p>
+<p>You should import some important packages first. For encoding reasons, you should use UTF-8. In Python, it means
+</p>
 </div></div>
 <div class="codeblock">
 <div class="blockcontent"><pre>
@@ -21,58 +31,69 @@ import numpy as np
 
 Data = pd.read_csv("data.csv", encoding = "UTF-8")
 </pre></div></div>
-<p></p>
-<h2>Part 1: Explorative Data Analysis</h2>
+<p>
+</p>
+<h2>Part 1: Explorative Data Analysis
+</h2>
 <div class="infoblock">
 <div class="blocktitle">Problem 1</div>
 <div class="blockcontent">
-<p>You could use Aggregate Functions (<tt>groupby</tt> in <tt>Pandas</tt>) or just loops to find the first and last day of the orders in this dataset (For loop is very time-consuming, I will not mention it later). <br /> One example is shown below.</p>
+<p>You could use Aggregate Functions (<tt>groupby</tt> in <tt>Pandas</tt>) or just loops to find the first and last day of the orders in this dataset (For loop is very time-consuming, I will not mention it later). <br /> One example is shown below.
+</p>
 </div></div>
 <div class="codeblock">
 <div class="blockcontent"><pre>
 '''
         date	order_id	commodity_code	commodity_name	category_name
-0	2019/6/1	1	S1	标准美式	饮品
-7	2019/6/21	8	S11	坚果	食品
-1	2019/7/2	2	S2	瑞纳冰	饮品
-5	2019/6/13	6	S2	瑞纳冰	饮品
-2	2019/6/6	3	S3	加浓美式	饮品
-3	2019/6/17	4	S5	拿铁	饮品
-4	2019/7/4	5	S5	拿铁	饮品
-6	2019/6/14	7	S9	菠萝卷	食品
-8	2019/6/17	9	S9	菠萝卷	食品
+0	2019/6/1	1	S1	卤锚脳录脙脌脢陆	脪没脝路
+7	2019/6/21	8	S11	录谩鹿没	脢鲁脝路
+1	2019/7/2	2	S2	脠冒脛脡卤霉	脪没脝路
+5	2019/6/13	6	S2	脠冒脛脡卤霉	脪没脝路
+2	2019/6/6	3	S3	录脫脜篓脙脌脢陆	脪没脝路
+3	2019/6/17	4	S5	脛脙脤煤	脪没脝路
+4	2019/7/4	5	S5	脛脙脤煤	脪没脝路
+6	2019/6/14	7	S9	虏陇脗脺戮铆	脢鲁脝路
+8	2019/6/17	9	S9	虏陇脗脺戮铆	脢鲁脝路
 '''
 </pre></div></div>
-<p></p>
+<p>
+</p>
 <div class="infoblock">
 <div class="blockcontent">
-<p>For the dataset above, the output result should be </p>
+<p>For the dataset above, the output result should be 
+</p>
 </div></div>
 <div class="codeblock">
 <div class="blockcontent"><pre>
 '2019/6/1' to '2019/7/4'
 </pre></div></div>
-<p></p>
+<p>
+</p>
 <div class="infoblock">
 <div class="blocktitle">Problem 2</div>
 <div class="blockcontent">
-<p>Find the <i>time</i> feature and use <tt>groupby</tt>, then compute the number of orders by <tt>sum</tt> in <tt>Numpy</tt></p>
+<p>Find the <i>time</i> feature and use <tt>groupby</tt>, then compute the number of orders by <tt>sum</tt> in <tt>Numpy</tt>
+</p>
 </div></div>
 <div class="infoblock">
 <div class="blocktitle">Problem 2-a</div>
 <div class="blockcontent">
-<p>Show that there is a significant difference in the number of orders in Workdays and Weekends.</p>
+<p>Show that there is a significant difference in the number of orders in Workdays and Weekends.
+</p>
 </div></div>
 <div class="infoblock">
 <div class="blocktitle">Problem 3</div>
 <div class="blockcontent">
-<p>Similar to Problem 2 except that you need to find a <i>user</i> feature.</p>
+<p>Similar to Problem 2 except that you need to find a <i>user</i> feature.
+</p>
 </div></div>
 <div class="infoblock">
 <div class="blocktitle">Problem 4</div>
 <div class="blockcontent">
-<p>Use <tt>groupby</tt> with respect to <i>commodity_code</i> or <i>commodity_name</i> and <tt>sort_values</tt> in <tt>Pandas</tt>. <br /> 
-For graphs, see codes below.</p>
+<p>Use <tt>groupby</tt> with respect to <i>commodity_code</i> or <i>commodity_name</i> and <tt>sort_values</tt> in <tt>Pandas</tt>. <br /> 
+
+For graphs, see codes below.
+</p>
 </div></div>
 <div class="codeblock">
 <div class="blockcontent"><pre>
@@ -86,18 +107,23 @@ plt.show()
 import seaborn as sns
 sns.barplot(data = ...)
 </pre></div></div>
-<p></p>
+<p>
+</p>
 <div class="infoblock">
 <div class="blocktitle">Problem 5: Hints 1</div>
 <div class="blockcontent">
-<p>Here is the key: Try to shuffle some samples, compute the discount rate and the results should be 0, 0.18, 0.28, 0.38, 0.5, 0.66 and so on. This is because these are the true discount rates appeared in the coupons. <br />
-Formula: Shown after <b>2019-02-01</b></p>
+<p>Here is the key: Try to shuffle some samples, compute the discount rate and the results should be 0, 0.18, 0.28, 0.38, 0.5, 0.66 and so on. This is because these are the true discount rates appeared in the coupons. <br />
+
+Formula: Shown after <b>2019-02-01</b>
+</p>
 </div></div>
 <div class="infoblock">
 <div class="blocktitle">Problem 5: Hints 2</div>
 <div class="blockcontent">
-<p>In Pandas, you could do direct computations between different <tt>Series</tt>. 
-<br /> Here is an example.</p>
+<p>In Pandas, you could do direct computations between different <tt>Series</tt>. 
+
+<br /> Here is an example.
+</p>
 </div></div>
 <div class="codeblock">
 <div class="blockcontent"><pre>
@@ -113,17 +139,21 @@ Result:
 dtype: int64
 '''
 </pre></div></div>
-<p></p>
+<p>
+</p>
 <div class="infoblock">
 <div class="blocktitle">Problem 6</div>
 <div class="blockcontent">
-<p>Use <tt>groupby</tt> in <tt>Pandas</tt> and <tt>mean()</tt> methods to find the average. <br /> As for the <i>week</i>, although it is acceptable to look up in the calender, you'd better use <i>holiday.csv</i> to find which seven days could be combined into one <i>week</i>.</p>
+<p>Use <tt>groupby</tt> in <tt>Pandas</tt> and <tt>mean()</tt> methods to find the average. <br /> As for the <i>week</i>, although it is acceptable to look up in the calender, you'd better use <i>holiday.csv</i> to find which seven days could be combined into one <i>week</i>.
+</p>
 </div></div>
 <div class="infoblock">
 <div class="blocktitle">Problem 7</div>
 <div class="blockcontent">
-<p>Obtain the users on the day <tt>t</tt> and use the users indices to do filtering by <tt>isin()</tt> method. <br />
-For <tt>isin()</tt>, here is an example.</p>
+<p>Obtain the users on the day <tt>t</tt> and use the users indices to do filtering by <tt>isin()</tt> method. <br />
+
+For <tt>isin()</tt>, here is an example.
+</p>
 </div></div>
 <div class="codeblock">
 <div class="blockcontent"><pre>
@@ -141,15 +171,18 @@ Result:
 Name: A, dtype: int64
 '''
 </pre></div></div>
-<p></p>
+<p>
+</p>
 <div class="infoblock">
 <div class="blockcontent">
-<p>Please keep in mind the different between <tt>.loc</tt> and <tt>.iloc</tt></p>
+<p>Please keep in mind the different between <tt>.loc</tt> and <tt>.iloc</tt>
+</p>
 </div></div>
 <div class="infoblock">
 <div class="blocktitle">Problem 8</div>
 <div class="blockcontent">
-<p>This could be done by Logic Expression, here is an example. </p>
+<p>This could be done by Logic Expression, here is an example. 
+</p>
 </div></div>
 <div class="codeblock">
 <div class="blockcontent"><pre>
@@ -168,16 +201,19 @@ Result:
 11   7
 '''
 </pre></div></div>
-<p></p>
+<p>
+</p>
 <div class="infoblock">
 <div class="blocktitle">Problem 9</div>
 <div class="blockcontent">
-<p><tt>.to_csv()</tt> method</p>
+<p><tt>.to_csv()</tt> method
+</p>
 </div></div>
 <div class="infoblock">
 <div class="blocktitle">Problem 10</div>
 <div class="blockcontent">
-<p>There are many descriptive statistics in <tt>Pandas</tt>. Here is an example.</p>
+<p>There are many descriptive statistics in <tt>Pandas</tt>. Here is an example.
+</p>
 </div></div>
 <div class="codeblock">
 <div class="blockcontent"><pre>
@@ -190,15 +226,21 @@ Result:
 4.833333
 '''
 </pre></div></div>
-<p></p>
-<h2>Part 2: Data Preprocessing</h2>
-<p></p>
+<p>
+</p>
+<h2>Part 2: Data Preprocessing
+</h2>
+<p>
+</p>
 <div class="infoblock">
 <div class="blocktitle">Problem 1</div>
 <div class="blockcontent">
-<p>There are two ways. Either just select all except the first column with <tt>.iloc()</tt> method. <br /> 
-Either use <tt>.drop()</tt> method to select the column you want to delete with the column name. <br /> 
-Here is an example.</p>
+<p>There are two ways. Either just select all except the first column with <tt>.iloc()</tt> method. <br /> 
+
+Either use <tt>.drop()</tt> method to select the column you want to delete with the column name. <br /> 
+
+Here is an example.
+</p>
 </div></div>
 <div class="codeblock">
 <div class="blockcontent"><pre>
@@ -215,23 +257,26 @@ Result:
 2  10  2  7
 '''
 </pre></div></div>
-<p></p>
+<p>
+</p>
 <div class="infoblock">
 <div class="blockcontent">
-<p>You could print <tt>A.columns</tt> for more information.</p>
+<p>You could print <tt>A.columns</tt> for more information.
+</p>
 </div></div>
 <div class="infoblock">
 <div class="blocktitle">Problem 2</div>
 <div class="blockcontent">
-<p>This task requires you to create a pivot table, use <tt>.pivot_table()</tt> in <tt>Pandas</tt>. Here is an example.</p>
+<p>This task requires you to create a pivot table, use <tt>.pivot_table()</tt> in <tt>Pandas</tt>. Here is an example.
+</p>
 </div></div>
 <div class="codeblock">
 <div class="blockcontent"><pre>
 Table = {'date': ['2019/6/1', '2019/7/2', '2019/6/6', '2019/6/17', '2019/7/4',
 '2019/6/13', '2019/6/14', '2019/6/21', '2019/6/17'], 'order_id': [i+1 for i in range(9)],
-'commodity_code': ['S1', 'S2', 'S3', 'S5', 'S5', 'S2', 'S9', 'S11', 'S9'], 'commodity_name': ['标准美式',
-'瑞纳冰', '加浓美式', '拿铁', '拿铁', '瑞纳冰', '菠萝卷', '坚果', '菠萝卷'], 'category_name': ['饮品',
-'饮品', '饮品', '饮品', '饮品', '饮品', '食品', '食品', '食品']}
+'commodity_code': ['S1', 'S2', 'S3', 'S5', 'S5', 'S2', 'S9', 'S11', 'S9'], 'commodity_name': ['卤锚脳录脙脌脢陆',
+'脠冒脛脡卤霉', '录脫脜篓脙脌脢陆', '脛脙脤煤', '脛脙脤煤', '脠冒脛脡卤霉', '虏陇脗脺戮铆', '录谩鹿没', '虏陇脗脺戮铆'], 'category_name': ['脪没脝路',
+'脪没脝路', '脪没脝路', '脪没脝路', '脪没脝路', '脪没脝路', '脢鲁脝路', '脢鲁脝路', '脢鲁脝路']}
 Table = pd.DataFrame(Table)
 Result = pd.pivot_table(Table, index = 'category_name', columns = 'commodity_code', aggfunc = np.sum, fill_value = 0)
 print(Result)
@@ -241,31 +286,38 @@ Result:
 	order_id
 commodity_code	S1	S11	S2	S3	S5	S9
 category_name
-食品	0	8	0	0	0	16
-饮品	1	0	8	3	9	0
+脢鲁脝路	0	8	0	0	0	16
+脪没脝路	1	0	8	3	9	0
 '''
 </pre></div></div>
-<p></p>
+<p>
+</p>
 <div class="infoblock">
 <div class="blockcontent">
-<p>Remember, the user should be identified by <i>Phone_No</i> and the items should be identified by <i>commodity_name</i>.</p>
+<p>Remember, the user should be identified by <i>Phone_No</i> and the items should be identified by <i>commodity_name</i>.
+</p>
 </div></div>
 <div class="infoblock">
 <div class="blocktitle">Problem 3</div>
 <div class="blockcontent">
-<p>None.</p>
+<p>None.
+</p>
 </div></div>
-<h2>Part 3: Model Training and Prediction</h2>
+<h2>Part 3: Model Training and Prediction
+</h2>
 <div class="infoblock">
 <div class="blocktitle">Problem 1</div>
 <div class="blockcontent">
-<p>None </p>
+<p>None 
+</p>
 </div></div>
 <div class="infoblock">
 <div class="blocktitle">Problem 2</div>
 <div class="blockcontent">
-<p>Because you have changed the data into an <tt>array</tt>, you need to use selections methods in <tt>Numpy</tt>, which are a little different with those in <tt>Pandas</tt>. 
-<br /> Here is an example.</p>
+<p>Because you have changed the data into an <tt>array</tt>, you need to use selections methods in <tt>Numpy</tt>, which are a little different with those in <tt>Pandas</tt>. 
+
+<br /> Here is an example.
+</p>
 </div></div>
 <div class="codeblock">
 <div class="blockcontent"><pre>
@@ -280,41 +332,53 @@ Result:
  [ 9 10  2]] [3 7 7]
 '''
 </pre></div></div>
-<p></p>
+<p>
+</p>
 <div class="infoblock">
 <div class="blocktitle">Problem 3</div>
 <div class="blockcontent">
-<p>You could find models <i>Adaboost</i>, <i>Random Forest</i> and also <i>Cross Validation</i> in <i>Sklearn</i>. <br /> See <a href="https://scikit-learn.org/stable/" target=&ldquo;blank&rdquo;>Sklearn Official Documentation</a> for more information.</p>
+<p>You could find models <i>Adaboost</i>, <i>Random Forest</i> and also <i>Cross Validation</i> in <i>Sklearn</i>. <br /> See <a href="https://scikit-learn.org/stable/" target=&ldquo;blank&rdquo;>Sklearn Official Documentation</a> for more information.
+</p>
 </div></div>
 <div class="infoblock">
 <div class="blocktitle">Problem 3-a</div>
 <div class="blockcontent">
-<p><i>Xgboost</i> has unique data structures and training methods, see more information on <a href="https://xgboost.readthedocs.io/en/latest/python/python_intro.html" target=&ldquo;blank&rdquo;>Xgboost Python Tutorial</a>. 
-<br /> You could also find <i>Xgboost</i> in <i>Sklearn</i>.</p>
+<p><i>Xgboost</i> has unique data structures and training methods, see more information on <a href="https://xgboost.readthedocs.io/en/latest/python/python_intro.html" target=&ldquo;blank&rdquo;>Xgboost Python Tutorial</a>. 
+
+<br /> You could also find <i>Xgboost</i> in <i>Sklearn</i>.
+</p>
 </div></div>
 <div class="infoblock">
 <div class="blocktitle">Problem 3-b</div>
 <div class="blockcontent">
-<p>When you ponder over this question, try to think from the following aspects: 
-<br /> Characteristics of Data, Computational Complexity, Quality (Metrics) of the Model.</p>
+<p>When you ponder over this question, try to think from the following aspects: 
+
+<br /> Characteristics of Data, Computational Complexity, Quality (Metrics) of the Model.
+</p>
 </div></div>
 <div class="infoblock">
 <div class="blocktitle">Problem 4</div>
 <div class="blockcontent">
-<p>This is the most difficult problem of this project and it is very time-consuming (at least one week) because there are many cases for you to consider. However, this is an open question, so no need to enumerate all possible outcomes just to find the best results.</p>
+<p>This is the most difficult problem of this project and it is very time-consuming (at least one week) because there are many cases for you to consider. However, this is an open question, so no need to enumerate all possible outcomes just to find the best results.
+</p>
 </div></div>
 <div class="infoblock">
 <div class="blocktitle">Problem 5</div>
 <div class="blockcontent">
-<p>For every case you try in Problem 4, please record the result and the trend. Does the model behave better or worse? The performances will show you the hidden information of the data and you could use business intuition to explain the phenomenons. That is the answer of Problem 5.</p>
+<p>For every case you try in Problem 4, please record the result and the trend. Does the model behave better or worse? The performances will show you the hidden information of the data and you could use business intuition to explain the phenomenons. That is the answer of Problem 5.
+</p>
 </div></div>
 <div class="infoblock">
 <div class="blocktitle">FYI</div>
 <div class="blockcontent">
-<p>If you still find the problems hard to solve, read the articles or codes listed below thoroughly. <br /> 
-<a href="https://zhuanlan.zhihu.com/p/83789325" target=&ldquo;blank&rdquo;>Python Data Analysis Note: Part 1</a> <br /> 
-<a href="https://zhuanlan.zhihu.com/p/86247866" target=&ldquo;blank&rdquo;>Python Data Analysis Note: Part 2</a> <br /> 
-If you still find the problems hard to solve after reading, contact me by the email or WeChat. </p>
+<p>If you still find the problems hard to solve, read the articles or codes listed below thoroughly. <br /> 
+
+<a href="https://zhuanlan.zhihu.com/p/83789325" target=&ldquo;blank&rdquo;>Python Data Analysis Note: Part 1</a> <br /> 
+
+<a href="https://zhuanlan.zhihu.com/p/86247866" target=&ldquo;blank&rdquo;>Python Data Analysis Note: Part 2</a> <br /> 
+
+If you still find the problems hard to solve after reading, contact me by the email or WeChat. 
+</p>
 </div></div>
 <div id="footer">
 <div id="footer-text">
@@ -322,5 +386,6 @@ Page generated 2019-12-16 19:24:05 China Standard Time, by <a href="https://gith
 </div>
 </div>
 </div>
+	</table>
 </body>
 </html>
