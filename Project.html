@@ -38,7 +38,7 @@ MathJax.Hub.Config({
 <li><p>Find the number of orders each day.
 </p>
 <ol>
-<li><p><font color = "#0000FF">Boss: we need to design two different strategies for sales in workdays and sales in weekends.</font> <br /> True or False? 
+<li><p><font color = "#0000FF">Boss: we need to design two different strategies for sales in workdays and sales in weekends.</font> <br /> True or False? Give an explanation. 
 </p>
 </li></ol>
 </li>
@@ -46,6 +46,9 @@ MathJax.Hub.Config({
 </p>
 </li>
 <li><p>Find ten commodities with the highest sales and draw graphs with x-axis the commodity name and y-axis the # of orders.
+</p>
+</li>
+<li><p>Find the discount rate of each order and concat it onto the original dataset with column name <i>discount_rate</i>. You may use <i>pay_money</i>, <i>coffeestore_share_money</i>, <i>commodity_origin_money</i> and <i>commodity_income</i>.
 </p>
 </li>
 <li>
@@ -60,7 +63,7 @@ MathJax.Hub.Config({
 <li><p>Find &ldquo;Active Users&rdquo; (which means the number of orders of one user is greater equal to 5).
 </p>
 </li>
-<li><p>Write the table you get in 7 as a csv file with filename <i>ActiveUser.csv</i>. 
+<li><p>Write the table you get in 8 as a csv file with filename <i>ActiveUser.csv</i>. 
 </p>
 </li>
 <li><p>Provide a description of the number of orders for each active user (# of ActiveUser, mean, std, variance, range, skewness, kurtosis )
@@ -74,9 +77,6 @@ MathJax.Hub.Config({
 <p>
 </p>
 <ol>
-<li><p>Find the discount rate of each user and concat it onto the original dataset with column name <i>discount_rate</i>. You may use <i>pay_money</i>, <i>coffeestore_share_money</i>, <i>commodity_origin_money</i> and <i>commodity_income</i>.
-</p>
-</li>
 <li><p>Remove the first column, because it is just a copy of index.
 </p>
 </li>
@@ -131,19 +131,19 @@ For example, if the time span is from 2019-02-01 to 2019-02-10, then there are 1
 <li><p>(Optional) Use <i>Xgboost</i>. 
 </p>
 </li>
-<li><p><font color = '#0000FF'>Boss: Please do not use Naive Bayes or Support Vector Machine in this project. </font> <br />
+	<li><p><font color = '#0000FF'>Boss: Please do not use <i>Naive Bayes</i> or <i>Support Vector Machine</i> in this project. </font> <br />
 
 True or False? Give an explanation.
 </p>
 </li></ol>
 </li>
-<li><p>Tune your model and report the best metrics you could get for your model and the corresponding confusion matrix. Here are some suggestions.
+<li><p>Tune your model and report the best metrics you could get for your model and the corresponding confusion matrix and model name. At least <i>Adaboost </i> and <i> Random Forest</i> should be used for tuning. <br /> Here are some suggestions.
 </p>
 <ol>
 <li><p>Try to do oversampling or undersampling. This is an imbalanced classification problem.
 </p>
 </li>
-<li><p>Change the parameters of each model (e.g. scale_pos_weight in <i>xgboost</i> and probability threshold), more information could be found in the Official Documentations.
+<li><p>Change the parameters of each model (e.g. scale_pos_weight in <i>Xgboost</i> and probability threshold), more information could be found in the Official Documentations.
 </p>
 </li>
 <li><p>Accuracy is not suitable to be an evaluation metric in this case. Use F1-measure. 
