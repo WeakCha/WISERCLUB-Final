@@ -278,7 +278,7 @@ Table = {'date': ['2019/6/1', '2019/7/2', '2019/6/6', '2019/6/17', '2019/7/4',
 '瑞纳冰', '加浓美式', '拿铁', '拿铁', '瑞纳冰', '菠萝卷', '坚果', '菠萝卷'], 'category_name': ['饮品', 
 '饮品', '饮品', '饮品', '饮品', '饮品', '食品', '食品', '食品']}
 Table = pd.DataFrame(Table)
-Result = pd.pivot_table(Table, index = 'category_name', columns = 'commodity_code', aggfunc = np.sum, fill_value = 0)
+Result = pd.pivot_table(Table, index = 'category_name', columns = 'commodity_code', <br/> aggfunc = np.sum, fill_value = 0)
 print(Result)
 
 '''
