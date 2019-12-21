@@ -40,7 +40,7 @@ MathJax.Hub.Config({
 <li><p>Create two <tt>m*n array</tt> (or <tt>matrix</tt>) with random values in cells, where <tt>m = 100</tt>, <tt>n = 100</tt>.
 </p>
 </li>
-<li><p><font color = '#0000FF'> Boss: Here is an experiment: Compute the point-wise product of these two arrays, which means 
+<li><p><font color = '#0000FF'> Boss: Here is an experiment: Compute the point-wise product of these two arrays, which means </font>
 </p>
 </li>
 <p style="text-align:center">
@@ -51,11 +51,12 @@ C_{ij} = A_{ij}B_{ij}, i, j = 1, 2, \ldots, 100
 \]
 </p>
 <p>
+<font color = '#0000FF'> 
 I have two approaches for this numeric experiment. <br /> 
 
-(1) Use two nested loops, which means using <tt>for i in &hellip; &lt;br/&gt; for j in &hellip; </tt>. <br />
+	(1) Use two nested loops, which means using </font> <tt>for i in &hellip; &lt;br/&gt; for j in &hellip; </tt> <br />
 
-(2) Print <tt>A * B</tt>, because in <tt>numpy</tt> it will lead to point-wise product. <br /> </font>
+	<font color = '#0000FF'>  (2) Print </font><tt>A * B</tt><font color = '#0000FF'>  because in </font><tt>numpy</tt><font color = '#0000FF'>  it will lead to point-wise product. <br /> </font>
 
 Compare these two methods with respect to time cost. You may use <tt>.time</tt> method in <tt>time</tt>. 
 </p>
@@ -75,7 +76,7 @@ Compare these two methods with respect to time cost. You may use <tt>.time</tt> 
 <li><p>Create a list of random values with length <tt>m*n</tt>.
 </p>
 </li>
-<li><p> <font color = '#0000FF'> Boss: Design several ways to construct a matrix <tt>C</tt> with </font>
+	<li><p> <font color = '#0000FF'> Boss: Design several ways to construct a matrix </font> <tt>C</tt> <font color = '#0000FF'> with </font>
 </p>
 </li>
 <p style="text-align:center">
@@ -202,7 +203,7 @@ Compare these four methods with respect to time speed and readability. Which one
 </p>
 <h3> Problem 5
 </h3>
-<p>Boss: KL-divergence is a vital metric to describe the similarity of two probability densities. <br />
+<p><font color = '#0000FF'> Boss: KL-divergence is a vital metric to describe the similarity of two probability densities. </font> <br />
 
 Use formula 
 </p>
@@ -216,7 +217,7 @@ Use formula
 and the tricks you learned in Problem 4. Try to design a method to compute <p style="text-align:center">
  \[ C_{ij} = KL (x_i, y_j) \] 
 </p>
-as fast as possible. x_i means the i-th row of matrix X. You do not need to do normalization although it is a discrete probability density.
+as fast as possible. Note that x_i means the i-th row of matrix X. You do not need to do normalization although it is a discrete probability density.
 </p>
 <div id="footer">
 <div id="footer-text">
