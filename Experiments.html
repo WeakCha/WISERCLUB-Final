@@ -23,46 +23,71 @@ MathJax.Hub.Config({
 <div class="menu-category">WISERCLUB <br /> 2019-2020 Final</div>
 <div class="menu-item"><a href="Final.html">Introduction</a></div>
 <div class="menu-item"><a href="Project.html">Project&nbsp;Description</a></div>
+<div class="menu-item"><a href="Experiments.html" class = "current">Numerical Experiments</a></div>
+<div class="menu-item"><a href="hint.html">Hints</a></div>
+
 </td>
 <td id="layout-content">
-<p></p>
-<h2>Part 4: Numerical Examples</h2>
-<p>In this part, You could design different methods to complete the same thing with the instructions. <br /></p>
-<h3>Problem 1</h3>
+<p>
+</p>
+<h2>Part 4: Numerical Examples
+</h2>
+<p>In this part, You could design different methods to complete the same thing with the instructions. <br />
+</p>
+<h3>Problem 1
+</h3>
 <ol>
-<li><p>Create two <tt>m*n array</tt> (or <tt>matrix</tt>) with random values in cells, where <tt>m = 100</tt>, <tt>n = 100</tt>.</p>
+<li><p>Create two <tt>m*n array</tt> (or <tt>matrix</tt>) with random values in cells, where <tt>m = 100</tt>, <tt>n = 100</tt>.
+</p>
 </li>
-<li><p>Boss: Here is the experiment. You need to compute the point-wise product of these two arrays, which means </p>
+<li><p><font color = '#0000FF'> Boss: Here is an experiment: Compute the point-wise product of these two arrays, which means 
+</p>
 </li>
 <p style="text-align:center">
-\[ 
-C_{ij} = A_{ij}B_{ij}, i, j = 1, 2, \ldots, 100 
+\[ 
+
+C_{ij} = A_{ij}B_{ij}, i, j = 1, 2, \ldots, 100 
+
 \]
 </p>
 <p>
-I have two approaches for this numeric experiment. <br /> 
-(1) Use two nested loops, which means using <tt>for i in &hellip; &lt;br/&gt; for j in &hellip; </tt>. <br />
-(2) Print <tt>A * B</tt>, because in <tt>numpy</tt> it will lead to point-wise product. <br />
-Compare these two methods with respect to time cost. You may use <tt>.time</tt> method in <tt>time</tt>. </p>
-<li><p>Adjust <tt>m</tt> and <tt>n</tt> as you like if you think the difference is not significant. </p>
+I have two approaches for this numeric experiment. <br /> 
+
+(1) Use two nested loops, which means using <tt>for i in &hellip; &lt;br/&gt; for j in &hellip; </tt>. <br />
+
+(2) Print <tt>A * B</tt>, because in <tt>numpy</tt> it will lead to point-wise product. <br /> </font>
+
+Compare these two methods with respect to time cost. You may use <tt>.time</tt> method in <tt>time</tt>. 
+</p>
+<li><p>Adjust <tt>m</tt> and <tt>n</tt> as you like if you think the difference is not significant. 
+</p>
 </li>
 </ol>
-<h3>Problem 2</h3>
+<h3>Problem 2
+</h3>
 <ol>
-<li><p>Create two <tt>m*n array</tt> (or <tt>matrix</tt>) with random values in cells, where <tt>m = 100</tt>, <tt>n = 100</tt>.</p>
+<li><p>Create two <tt>m*n array</tt> (or <tt>matrix</tt>) with random values in cells, where <tt>m = 100</tt>, <tt>n = 100</tt>.
+</p>
 </li>
-<li><p>Transform one <tt>array</tt> into <tt>DataFrame</tt>.</p>
+<li><p>Transform one <tt>array</tt> into <tt>DataFrame</tt>.
+</p>
 </li>
-<li><p>Create a list of random values with length <tt>m*n</tt>.</p>
+<li><p>Create a list of random values with length <tt>m*n</tt>.
+</p>
 </li>
-<li><p>Boss: Design several ways to construct a matrix <tt>C</tt> with </p>
+<li><p> <font color = '#0000FF'> Boss: Design several ways to construct a matrix <tt>C</tt> with </font>
+</p>
 </li>
 <p style="text-align:center">
-$$
-C_{ij} = ni + j
 $$
-</p><p><br /> 
-Here are several methods. The codes are shown below.</p>
+
+C_{ij} = ni + j
+
+$$
+</p><p><br /> 
+
+Here are several methods. The codes are shown below.
+</p>
 <div class="codeblock">
 <div class="blockcontent"><pre>
   <span class = "comment"># Method 1: A is an array</span>
@@ -103,13 +128,19 @@ Here are several methods. The codes are shown below.</p>
   F = Test(F)
   F = np.array(F).reshape(m, n)
 </pre></div></div>
-<p>
-Compare the above six methods with respect to time cost. If you would like to, explain why they have different performances.
-</p>
+<p>
+
+Compare the above six methods with respect to time cost. If you would like to, explain why they have different performances.
+
+
+</p>
 </ol>
-<h3>Problem 3</h3>
-<p>Execute the following two chunks.
-</p>
+<h3>Problem 3
+</h3>
+<p>Execute the following two chunks.
+
+
+</p>
 <div class="codeblock">
 <div class="blockcontent"><pre>
   <span class = "comment"># Chunk 1</span>
@@ -123,17 +154,26 @@ Compare the above six methods with respect to time cost. If you would like to, e
   for i in A:
     A[i] = np.array([i for i in range(100)])
 </pre></div></div>
-<p>
-Do they return the same result regardless of data structures? If you want to, try to find why. </p>
-<h3>Problem 4</h3>
-<p>Consider the following problem: <br />
-Let <tt>X</tt> be a <tt>m * n</tt> matrix and <tt>Y</tt> be a <tt>k * n</tt> matrix. Construct <tt>Z</tt> with </p>
+<p>
+
+Do they return the same result regardless of data structures? If you want to, try to find why. 
+</p>
+<h3>Problem 4
+</h3>
+<p>Consider the following problem: <br />
+
+Let <tt>X</tt> be a <tt>m * n</tt> matrix and <tt>Y</tt> be a <tt>k * n</tt> matrix. Construct <tt>Z</tt> with 
+</p>
 <p style="text-align:center">
-\[
-  Z_{kl} = \sum_{i = 1}^{n} \frac{X_{ki}}{Y_{li}} 
+\[
+
+  Z_{kl} = \sum_{i = 1}^{n} \frac{X_{ki}}{Y_{li}} 
+
   \]
-</p><p>Here are several methods:
-</p>
+</p><p>Here are several methods:
+
+
+</p>
 <div class="codeblock">
 <div class="blockcontent"><pre>
   <span class = "comment"># Method 1: Nested Loops</span>
@@ -156,15 +196,21 @@ Let <tt>X</tt> be a <tt>m * n</tt> matrix and <tt>Y</tt> be a <tt>k * n</tt> mat
   C = A/B
   np.sum(C, 2)
 </pre></div></div>
-<p>
-Compare these four methods with respect to time speed and readability. Which one is the best? Which one is wrong? Which one MAY BE wrong?</p>
+<p>
+
+Compare these four methods with respect to time speed and readability. Which one is the best? Which one is wrong? Which one MAY BE wrong?
+</p>
 <h3> Problem 5
 </h3>
-<p>Boss: KL-divergence is a vital metric to describe the similarity of two probability densities. <br />
-Use formula </p>
+<p>Boss: KL-divergence is a vital metric to describe the similarity of two probability densities. <br />
+
+Use formula 
+</p>
 <p style="text-align:center">
-\[ 
-  KL(p, q) = -\sum p(x) \log \frac{p(x)}{q(x)} 
+\[ 
+
+  KL(p, q) = -\sum p(x) \log \frac{p(x)}{q(x)} 
+
   \]
 </p><p>
 and the tricks you learned in Problem 4. Try to design a method to compute <p style="text-align:center">
