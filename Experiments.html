@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link rel="stylesheet" href="jemdoc.css" type="text/css" />
+<title></title>
+<!-- MathJax -->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+	  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<!-- End MathJax -->
+</head>
+<body>
+<table summary="Table for page layout." id="tlayout">
+<tr valign="top">
+<td id="layout-menu">
+<div class="menu-category">WISERCLUB <br /> 2019-2020 Final</div>
+<div class="menu-item"><a href="Final.html">Introduction</a></div>
+<div class="menu-item"><a href="Project.html">Project&nbsp;Description</a></div>
+</td>
+<td id="layout-content">
+<p></p>
+<h2>Part 4: Numerical Examples</h2>
+<p>In this part, You could design different methods to complete the same thing with the instructions. <br /></p>
+<h3>Problem 1</h3>
+<ol>
+<li><p>Create two <tt>m*n array</tt> (or <tt>matrix</tt>) with random values in cells, where <tt>m = 100</tt>, <tt>n = 100</tt>.</p>
+</li>
+<li><p>Boss: Here is the experiment. You need to compute the point-wise product of these two arrays, which means </p>
+</li>
+<p style="text-align:center">
+\[ 
+C_{ij} = A_{ij}B_{ij}, i, j = 1, 2, \ldots, 100 
+\]
+</p>
+<p>
+I have two approaches for this numeric experiment. <br /> 
+(1) Use two nested loops, which means using <tt>for i in &hellip; &lt;br/&gt; for j in &hellip; </tt>. <br />
+(2) Print <tt>A * B</tt>, because in <tt>numpy</tt> it will lead to point-wise product. <br />
+Compare these two methods with respect to time cost. You may use <tt>.time</tt> method in <tt>time</tt>. </p>
+<li><p>Adjust <tt>m</tt> and <tt>n</tt> as you like if you think the difference is not significant. </p>
+</li>
+</ol>
+<h3>Problem 2</h3>
+<ol>
+<li><p>Create two <tt>m*n array</tt> (or <tt>matrix</tt>) with random values in cells, where <tt>m = 100</tt>, <tt>n = 100</tt>.</p>
+</li>
+<li><p>Transform one <tt>array</tt> into <tt>DataFrame</tt>.</p>
+</li>
+<li><p>Create a list of random values with length <tt>m*n</tt>.</p>
+</li>
+<li><p>Boss: Design several ways to construct a matrix <tt>C</tt> with </p>
+</li>
+<p style="text-align:center">
+$$
+C_{ij} = ni + j
+$$
+</p><p><br /> 
+Here are several methods. The codes are shown below.</p>
+<div class="codeblock">
+<div class="blockcontent"><pre>
+  <span class = "comment"># Method 1: A is an array</span>
+  for i in range(m):
+      for j in range(n):
+          A[i, j] = i * n + j
+
+  <span class = "comment"># Method 2: B is a DataFrame</span>
+  for i in range(m):
+      for j in range(n):
+          B.iloc[i, j] = i * n + j
+
+  <span class = "comment"># Method 3: C is a DataFrame</span>
+  for i in range(m):
+	  Temp = np.array([i * n + j for j in range(n)])
+		  C.iloc[i, :] = Temp
+
+  <span class = "comment"># Method 4: D is a DataFrame</span>
+  for j in range(n):
+	  Temp = np.array([i * n + j for i in range(m)])
+		  D.iloc[:, j] = Temp
+
+  <span class = "comment"># Method 5: E is a list</span>
+  for i in range(m):
+	for j in range(n):
+		E[i * n + j] = i * n + j
+  E = np.array(E).reshape(m, n)
+
+  <span class = "comment"># Method 6: F is a list</span>
+  @numba.jit <span class = "comment"># import numba first</span>
+  def Test(F):
+  for i in range(m):
+	for j in range(n):
+		F[i * n + j] = i * n + j
+  return F
+
+  F = []
+  F = Test(F)
+  F = np.array(F).reshape(m, n)
+</pre></div></div>
+<p>
+Compare the above six methods with respect to time cost. If you would like to, explain why they have different performances.
+</p>
+</ol>
+<h3>Problem 3</h3>
+<p>Execute the following two chunks.
+</p>
+<div class="codeblock">
+<div class="blockcontent"><pre>
+  <span class = "comment"># Chunk 1</span>
+  A = np.array([i for i in range(10000)]).reshape(100, 100)
+  for i in A:
+    A[i] = np.array([i for i in range(100)])
+
+  <span class = "comment"># Chunk 2</span>
+  A = np.array([i for i in range(10000)]).reshape(100, 100)
+  A = pd.DataFrame(A)
+  for i in A:
+    A[i] = np.array([i for i in range(100)])
+</pre></div></div>
+<p>
+Do they return the same result regardless of data structures? If you want to, try to find why. </p>
+<h3>Problem 4</h3>
+<p>Consider the following problem: <br />
+Let <tt>X</tt> be a <tt>m * n</tt> matrix and <tt>Y</tt> be a <tt>k * n</tt> matrix. Construct <tt>Z</tt> with </p>
+<p style="text-align:center">
+\[
+  Z_{kl} = \sum_{i = 1}^{n} \frac{X_{ki}}{Y_{li}} 
+  \]
+</p><p>Here are several methods:
+</p>
+<div class="codeblock">
+<div class="blockcontent"><pre>
+  <span class = "comment"># Method 1: Nested Loops</span>
+  for i in range(m):
+    for j in range(k):
+        Sum = 0
+        for l in range(n):
+            Sum = Sum + A[i, l] / B[j, l]
+        C[i, j] = Sum
+
+  <span class = "comment"># Method 2: np.dot()</span>
+  print(np.dot(A,1/B.T))
+
+  <span class = "comment"># Method 3: Direct Computation</span>
+  print(A/B)
+
+  <span class = "comment"># Method 4: Dimension Expansion</span>
+  A = A.reshape(1, m, n)
+  B = B.reshape(k, 1, n)
+  C = A/B
+  np.sum(C, 2)
+</pre></div></div>
+<p>
+Compare these four methods with respect to time speed and readability. Which one is the best? Which one is wrong? Which one MAY BE wrong?</p>
+<h3> Problem 5
+</h3>
+<p>Boss: KL-divergence is a vital metric to describe the similarity of two probability densities. <br />
+Use formula </p>
+<p style="text-align:center">
+\[ 
+  KL(p, q) = -\sum p(x) \log \frac{p(x)}{q(x)} 
+  \]
+</p><p>
+and the tricks you learned in Problem 4. Try to design a method to compute <p style="text-align:center">
+ \[ C_{ij} = KL (x_i, y_j) \] 
+</p>
+as fast as possible. x_i means the i-th row of matrix X. You do not need to do normalization although it is a discrete probability density.
+</p>
+<div id="footer">
+<div id="footer-text">
+Page generated 2019-12-21 20:00:39 China Standard Time, by <a href="https://github.com/wsshin/jemdoc_mathjax" target="blank">jemdoc+MathJax</a>.
+</div>
+</div>
+</td>
+</tr>
+</table>
+</body>
+</html>
