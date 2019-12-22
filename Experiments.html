@@ -40,7 +40,7 @@ MathJax.Hub.Config({
 <li><p>Create two <tt>m*n array</tt> (or <tt>matrix</tt>) with random values in cells, where <tt>m = 100</tt>, <tt>n = 100</tt>.
 </p>
 </li>
-<li><p><font color = '#0000FF'> Boss: Here is an experiment: Compute the point-wise product of these two arrays, which means </font>
+<li><p> Compute the point-wise product of these two arrays, which means 
 </p>
 </li>
 <p style="text-align:center">
@@ -51,12 +51,11 @@ C_{ij} = A_{ij}B_{ij}, i, j = 1, 2, \ldots, 100
 \]
 </p>
 <p>
-<font color = '#0000FF'> 
-I have two approaches for this numeric experiment. <br /> 
+There are two approaches for this numeric experiment. <br /> 
 
-	(1) Use two nested loops, which means using </font> <tt>for i in &hellip; &lt;br/&gt; for j in &hellip; </tt> <br />
+	(1) Use two nested loops, which means using<tt>for i in &hellip; &lt;br/&gt; for j in &hellip; </tt> <br />
 
-	<font color = '#0000FF'>  (2) Print </font><tt>A * B</tt><font color = '#0000FF'>  because in </font><tt>numpy</tt><font color = '#0000FF'>  it will lead to point-wise product. <br /> </font>
+ (2) Print </font><tt>A * B</tt><font color = '#0000FF'>  because in <tt>numpy</tt> it will lead to point-wise product. <br /> 
 
 Compare these two methods with respect to time cost. You may use <tt>.time</tt> method in <tt>time</tt>. 
 </p>
